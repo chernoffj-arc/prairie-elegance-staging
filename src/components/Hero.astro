@@ -1,0 +1,312 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-background">
+    <div class="hero-gradient"></div>
+    <div class="hero-pattern"></div>
+  </div>
+  
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="overline reveal">Calgary's Premier Staging Studio</span>
+      <h1 class="hero-title reveal reveal-delay-1">
+        Transform Your Space Into a
+        <span class="title-accent">Buyer's Dream</span>
+      </h1>
+      <p class="hero-description reveal reveal-delay-2">
+        We craft compelling visual narratives that connect buyers emotionally to your property. 
+        Our expertly curated designs showcase your home's true potential, helping properties 
+        sell faster and often above asking price.
+      </p>
+      <div class="hero-cta reveal reveal-delay-3">
+        <a href="#contact" class="btn btn-primary">
+          Start Your Transformation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="hero-image-main">
+        <div class="img-placeholder hero-img">
+          <span>Beautifully Staged Living Room</span>
+        </div>
+        <div class="image-frame"></div>
+      </div>
+      <div class="hero-image-accent">
+        <div class="img-placeholder hero-img-small">
+          <span>Modern Kitchen</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">97%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hero-scroll">
+    <span>Scroll to explore</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+  
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(196, 169, 98, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(156, 171, 151, 0.06) 0%, transparent 40%),
+      linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 100%);
+  }
+  
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(90deg, rgba(196, 169, 98, 0.03) 1px, transparent 1px),
+      linear-gradient(rgba(196, 169, 98, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
+  
+  .hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .hero-text {
+    max-width: 580px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--color-deep-brown);
+  }
+  
+  .title-accent {
+    display: block;
+    color: var(--color-gold);
+    font-style: italic;
+    position: relative;
+  }
+  
+  .title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    width: 100%;
+    height: 0.15em;
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+    opacity: 0.3;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-stone);
+    margin-bottom: 2.5rem;
+  }
+  
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .hero-visual {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .hero-image-main {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    background: 
+      linear-gradient(135deg, var(--color-sand) 0%, var(--color-taupe) 50%, var(--color-stone) 100%);
+  }
+  
+  .image-frame {
+    position: absolute;
+    inset: -15px;
+    border: 1px solid var(--color-gold);
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  
+  .hero-image-accent {
+    position: absolute;
+    bottom: -2rem;
+    left: -3rem;
+    width: 45%;
+    aspect-ratio: 3/2;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(42, 37, 34, 0.15);
+  }
+  
+  .hero-img-small {
+    width: 100%;
+    height: 100%;
+    font-size: 0.9rem;
+    background: 
+      linear-gradient(135deg, var(--color-cream) 0%, var(--color-sand) 50%, var(--color-taupe) 100%);
+  }
+  
+  .hero-stats {
+    position: absolute;
+    top: 2rem;
+    right: -2rem;
+    background: var(--color-warm-white);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 15px 50px rgba(42, 37, 34, 0.1);
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+    margin-top: 0.3rem;
+  }
+  
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-stone);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--color-gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+  
+  @media (max-width: 1024px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .hero-text {
+      max-width: 100%;
+      text-align: center;
+    }
+    
+    .hero-cta {
+      justify-content: center;
+    }
+    
+    .hero-visual {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .hero-image-accent {
+      left: -1rem;
+      bottom: -1rem;
+    }
+    
+    .hero-stats {
+      right: -1rem;
+      top: 1rem;
+      padding: 1rem 1.5rem;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .hero {
+      padding: 7rem 0 3rem;
+    }
+    
+    .hero-content {
+      padding: 0 1rem;
+    }
+    
+    .hero-image-accent,
+    .hero-stats {
+      display: none;
+    }
+    
+    .hero-scroll {
+      display: none;
+    }
+  }
+</style>

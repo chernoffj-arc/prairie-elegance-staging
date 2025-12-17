@@ -1,0 +1,271 @@
+---
+---
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images animate-on-scroll">
+        <div class="about-image-main">
+          <div class="img-placeholder about-img">
+            <span>Our Design Studio</span>
+          </div>
+        </div>
+        <div class="about-image-secondary">
+          <div class="img-placeholder about-img-small">
+            <span>Team at Work</span>
+          </div>
+        </div>
+        <div class="about-badge">
+          <span class="badge-number">12</span>
+          <span class="badge-text">Years of<br/>Excellence</span>
+        </div>
+      </div>
+      
+      <div class="about-content">
+        <span class="overline">About Us</span>
+        <h2>Calgary Roots, Design Excellence</h2>
+        <p class="about-lead">
+          Founded in 2012, Prairie Elegance Staging has become Calgary's most trusted 
+          name in home staging. We understand the local market, the seasonal rhythms, 
+          and what makes Calgary buyers fall in love with a property.
+        </p>
+        <p>
+          Our team of certified home stagers and interior designers brings a wealth of 
+          experience from residential design, real estate, and visual merchandising. We've 
+          staged homes from cozy Marda Loop bungalows to sprawling Aspen estates, always 
+          with the same dedication to quality and attention to detail.
+        </p>
+        <p>
+          We believe that every home has potential—sometimes it just needs the right vision 
+          to reveal it. That's where we come in.
+        </p>
+        
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <strong>Certified Professionals</strong>
+              <span>RESA & CSP accredited team</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <strong>Extensive Inventory</strong>
+              <span>10,000+ pieces of furniture & décor</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <strong>Calgary Focused</strong>
+              <span>Serving all Calgary neighbourhoods</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--space-2xl) 0;
+    background: var(--color-warm-white);
+    position: relative;
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  
+  .about-images {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .about-images.visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.8s ease;
+  }
+  
+  .about-image-main {
+    aspect-ratio: 4/5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(42, 37, 34, 0.12);
+  }
+  
+  .about-img {
+    width: 100%;
+    height: 100%;
+    font-size: 1.1rem;
+    background: 
+      linear-gradient(135deg, var(--color-taupe) 0%, var(--color-stone) 50%, var(--color-charcoal) 100%);
+  }
+  
+  .about-image-secondary {
+    position: absolute;
+    bottom: -3rem;
+    right: -3rem;
+    width: 55%;
+    aspect-ratio: 3/2;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(42, 37, 34, 0.15);
+    border: 5px solid var(--color-warm-white);
+  }
+  
+  .about-img-small {
+    width: 100%;
+    height: 100%;
+    font-size: 0.9rem;
+    background: 
+      linear-gradient(135deg, var(--color-sand) 0%, var(--color-taupe) 100%);
+  }
+  
+  .about-badge {
+    position: absolute;
+    top: 2rem;
+    left: -2rem;
+    background: var(--color-gold);
+    color: var(--color-warm-white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(196, 169, 98, 0.3);
+  }
+  
+  .badge-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 600;
+    display: block;
+    line-height: 1;
+  }
+  
+  .badge-text {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    display: block;
+    margin-top: 0.3rem;
+  }
+  
+  .about-content h2 {
+    margin-bottom: var(--space-md);
+  }
+  
+  .about-lead {
+    font-size: 1.15rem;
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .about-content p {
+    color: var(--color-stone);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-sand);
+  }
+  
+  .about-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--color-cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+  
+  .feature-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feature-text strong {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-deep-brown);
+  }
+  
+  .feature-text span {
+    font-size: 0.9rem;
+    color: var(--color-stone);
+  }
+  
+  @media (max-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    
+    .about-images {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .about-image-secondary {
+      right: -1rem;
+      bottom: -1.5rem;
+    }
+    
+    .about-badge {
+      left: -1rem;
+      top: 1rem;
+      padding: 1rem;
+    }
+    
+    .badge-number {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .about-image-secondary,
+    .about-badge {
+      display: none;
+    }
+    
+    .about-features {
+      gap: 1rem;
+    }
+  }
+</style>

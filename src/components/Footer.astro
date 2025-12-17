@@ -1,0 +1,260 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  services: [
+    { label: 'Full Home Staging', href: '#services' },
+    { label: 'Partial Staging', href: '#services' },
+    { label: 'Consultation', href: '#services' },
+    { label: 'Photography', href: '#services' }
+  ],
+  company: [
+    { label: 'About Us', href: '#about' },
+    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Process', href: '#process' },
+    { label: 'Contact', href: '#contact' }
+  ],
+  areas: [
+    'Downtown Calgary',
+    'Mount Royal',
+    'Bridgeland',
+    'Kensington',
+    'Mission',
+    'Inglewood',
+    'Altadore',
+    'Marda Loop'
+  ]
+};
+---
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <span class="logo-text">Prairie</span>
+            <span class="logo-accent">Elegance</span>
+          </a>
+          <p class="footer-tagline">
+            Transforming Calgary homes into buyer magnets since 2012. 
+            Professional staging that sells.
+          </p>
+          <div class="footer-contact">
+            <a href="mailto:hello@prairieelegance.ca">hello@prairieelegance.ca</a>
+            <a href="tel:+14035551234">(403) 555-1234</a>
+          </div>
+        </div>
+        
+        <div class="footer-links-group">
+          <h4>Services</h4>
+          <ul>
+            {footerLinks.services.map(link => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="footer-links-group">
+          <h4>Company</h4>
+          <ul>
+            {footerLinks.company.map(link => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="footer-links-group">
+          <h4>Areas We Serve</h4>
+          <ul class="areas-list">
+            {footerLinks.areas.map(area => (
+              <li>{area}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-content">
+        <p class="copyright">
+          © {currentYear} Prairie Elegance Staging. All rights reserved.
+        </p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-deep-brown);
+    color: var(--color-warm-white);
+  }
+  
+  .footer-top {
+    padding: var(--space-xl) 0;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 4rem;
+  }
+  
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-logo .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-warm-white);
+    letter-spacing: 0.05em;
+  }
+  
+  .footer-logo .logo-accent {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-gold);
+    letter-spacing: 0.15em;
+    margin-top: 2px;
+  }
+  
+  .footer-tagline {
+    color: var(--color-taupe);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 280px;
+  }
+  
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-contact a {
+    color: var(--color-taupe);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-contact a:hover {
+    color: var(--color-gold);
+  }
+  
+  .footer-links-group h4 {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-warm-white);
+    margin-bottom: 1.25rem;
+  }
+  
+  .footer-links-group ul {
+    list-style: none;
+  }
+  
+  .footer-links-group li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .footer-links-group a {
+    color: var(--color-taupe);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-links-group a:hover {
+    color: var(--color-gold);
+  }
+  
+  .areas-list {
+    column-count: 2;
+    column-gap: 1.5rem;
+  }
+  
+  .areas-list li {
+    color: var(--color-taupe);
+    font-size: 0.85rem;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(196, 169, 98, 0.15);
+    padding: 1.5rem 0;
+  }
+  
+  .footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .copyright {
+    color: var(--color-stone);
+    font-size: 0.85rem;
+  }
+  
+  .footer-legal {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .footer-legal a {
+    color: var(--color-stone);
+    font-size: 0.85rem;
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-legal a:hover {
+    color: var(--color-gold);
+  }
+  
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .footer-brand {
+      grid-column: span 2;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    
+    .footer-brand {
+      grid-column: span 1;
+    }
+    
+    .footer-bottom-content {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    
+    .footer-legal {
+      gap: 1.5rem;
+    }
+  }
+</style>

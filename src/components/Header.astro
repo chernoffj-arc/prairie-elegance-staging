@@ -1,0 +1,251 @@
+---
+const navItems = [
+  { label: 'Services', href: '#services' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Process', href: '#process' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-text">Prairie</span>
+      <span class="logo-accent">Elegance</span>
+    </a>
+    
+    <nav class="nav-desktop">
+      {navItems.map(item => (
+        <a href={item.href} class="nav-link">{item.label}</a>
+      ))}
+    </nav>
+    
+    <a href="#contact" class="header-cta btn btn-gold">Book Consultation</a>
+    
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+  
+  <nav class="mobile-menu">
+    <div class="mobile-menu-inner">
+      {navItems.map((item, index) => (
+        <a href={item.href} class="mobile-nav-link" style={`animation-delay: ${index * 0.1}s`}>
+          {item.label}
+        </a>
+      ))}
+      <a href="#contact" class="btn btn-gold mobile-cta">Book Consultation</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: all var(--transition-smooth);
+  }
+  
+  .header.scrolled {
+    background: rgba(253, 252, 250, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 30px rgba(42, 37, 34, 0.08);
+  }
+  
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: padding var(--transition-smooth);
+  }
+  
+  .header.scrolled .header-inner {
+    padding: 1rem 2rem;
+  }
+  
+  .logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    letter-spacing: 0.05em;
+  }
+  
+  .logo-accent {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-gold);
+    letter-spacing: 0.15em;
+    margin-top: 2px;
+  }
+  
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-gold);
+    transition: width var(--transition-smooth);
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .header-cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-charcoal);
+    transition: all var(--transition-smooth);
+    transform-origin: center;
+  }
+  
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-warm-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-smooth);
+    z-index: 999;
+  }
+  
+  .mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .mobile-nav-link {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-charcoal);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-smooth);
+  }
+  
+  .mobile-menu.active .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .mobile-cta {
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-smooth);
+    transition-delay: 0.5s;
+  }
+  
+  .mobile-menu.active .mobile-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 968px) {
+    .nav-desktop,
+    .header-cta {
+      display: none;
+    }
+    
+    .menu-toggle {
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header-inner {
+      padding: 1rem;
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+    }
+    
+    .logo-accent {
+      font-size: 0.75rem;
+    }
+  }
+</style>

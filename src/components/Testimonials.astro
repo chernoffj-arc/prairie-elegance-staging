@@ -1,0 +1,197 @@
+---
+const testimonials = [
+  {
+    quote: "Prairie Elegance transformed our dated split-level into a modern showcase. We received multiple offers within 48 hours and sold for well over asking. Worth every penny!",
+    author: "Sarah & Michael Chen",
+    location: "Bridgeland, Calgary",
+    result: "Sold 15% over asking"
+  },
+  {
+    quote: "As a realtor, I've worked with many staging companies. Prairie Elegance stands out for their attention to detail, reliability, and genuine understanding of what Calgary buyers want.",
+    author: "Jennifer Morrison",
+    location: "RE/MAX House of Real Estate",
+    result: "20+ properties staged"
+  },
+  {
+    quote: "The consultation alone was invaluable. Their designer helped us see our home through fresh eyes. Small changes made a huge difference in how quickly we sold.",
+    author: "David & Lisa Park",
+    location: "Mount Royal, Calgary",
+    result: "Sold in 5 days"
+  }
+];
+---
+
+<section class="testimonials">
+  <div class="testimonials-bg"></div>
+  
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="overline">Testimonials</span>
+      <h2>What Our Clients Say</h2>
+    </div>
+    
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial, index) => (
+        <blockquote class="testimonial-card animate-on-scroll" style={`--delay: ${index * 0.15}s`}>
+          <div class="testimonial-quote">
+            <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p>{testimonial.quote}</p>
+          </div>
+          <footer class="testimonial-footer">
+            <div class="testimonial-author">
+              <strong>{testimonial.author}</strong>
+              <span>{testimonial.location}</span>
+            </div>
+            <div class="testimonial-result">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7"/>
+              </svg>
+              {testimonial.result}
+            </div>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: var(--space-2xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .testimonials-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(135deg, var(--color-cream) 0%, var(--color-warm-white) 50%, var(--color-cream) 100%);
+    z-index: -1;
+  }
+  
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .testimonials-header h2 {
+    margin-bottom: 0;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .testimonial-card {
+    background: var(--color-warm-white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(42, 37, 34, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+    margin: 0;
+    transition: all var(--transition-smooth);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: var(--delay);
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(42, 37, 34, 0.1);
+  }
+  
+  .testimonial-quote {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .quote-icon {
+    color: var(--color-gold);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+  }
+  
+  .testimonial-quote p {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .testimonial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-sand);
+  }
+  
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .testimonial-author strong {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-deep-brown);
+  }
+  
+  .testimonial-author span {
+    font-size: 0.8rem;
+    color: var(--color-stone);
+  }
+  
+  .testimonial-result {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-sage);
+    background: rgba(156, 171, 151, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .testimonial-card {
+      padding: 2rem 1.5rem;
+    }
+    
+    .testimonial-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }
+</style>

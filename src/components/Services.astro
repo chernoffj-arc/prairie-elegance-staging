@@ -1,0 +1,240 @@
+---
+const services = [
+  {
+    icon: 'home',
+    title: 'Full Home Staging',
+    description: 'Complete transformation of your entire property with our curated furniture collection and design expertise. Perfect for vacant properties.',
+    features: ['Furniture rental', 'Décor accessories', 'Artwork placement', '30-60 day packages']
+  },
+  {
+    icon: 'sparkle',
+    title: 'Partial Staging',
+    description: 'Strategic enhancement of key rooms to maximize impact. Ideal for occupied homes needing that extra polish to impress buyers.',
+    features: ['Living areas', 'Master suite', 'Kitchen styling', 'Entry & dining']
+  },
+  {
+    icon: 'eye',
+    title: 'Consultation Only',
+    description: 'Professional guidance and detailed recommendations you can implement yourself. Get expert advice without the full staging investment.',
+    features: ['Room-by-room analysis', 'Furniture arrangement', 'Color recommendations', 'Written action plan']
+  },
+  {
+    icon: 'camera',
+    title: 'Listing Photography',
+    description: 'Partner services with Calgary\'s top real estate photographers to capture your staged space in its best light.',
+    features: ['HDR photography', 'Twilight shots', 'Aerial views', 'Virtual tours']
+  }
+];
+
+const iconPaths = {
+  home: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+  sparkle: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+  eye: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z',
+  camera: 'M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z M15 13a3 3 0 11-6 0 3 3 0 016 0z'
+};
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="overline">Our Services</span>
+      <h2>Tailored Staging Solutions</h2>
+      <p class="services-intro">
+        Every property tells a unique story. We offer flexible staging packages 
+        designed to showcase your home's best features and appeal to Calgary buyers.
+      </p>
+    </div>
+    
+    <div class="services-grid">
+      {services.map((service, index) => (
+        <article class="service-card animate-on-scroll" style={`--delay: ${index * 0.1}s`}>
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d={iconPaths[service.icon]} />
+            </svg>
+          </div>
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-description">{service.description}</p>
+          <ul class="service-features">
+            {service.features.map(feature => (
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a href="#contact" class="service-link">
+            Learn More
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: var(--space-2xl) 0;
+    background: var(--color-warm-white);
+    position: relative;
+  }
+  
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-sand), transparent);
+  }
+  
+  .services-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+  }
+  
+  .services-header h2 {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .services-intro {
+    color: var(--color-stone);
+    font-size: 1.1rem;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .service-card {
+    background: var(--color-cream);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    position: relative;
+    transition: all var(--transition-smooth);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: var(--delay);
+  }
+  
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-smooth);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(42, 37, 34, 0.08);
+  }
+  
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-warm-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-gold);
+    transition: all var(--transition-smooth);
+  }
+  
+  .service-card:hover .service-icon {
+    background: var(--color-gold);
+    color: var(--color-warm-white);
+    transform: scale(1.1);
+  }
+  
+  .service-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--color-deep-brown);
+  }
+  
+  .service-description {
+    font-size: 0.95rem;
+    color: var(--color-stone);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-charcoal);
+    padding: 0.4rem 0;
+  }
+  
+  .service-features svg {
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+  
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    transition: gap var(--transition-smooth);
+  }
+  
+  .service-link:hover {
+    gap: 0.75rem;
+  }
+  
+  @media (max-width: 1200px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

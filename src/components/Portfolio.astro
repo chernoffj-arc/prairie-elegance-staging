@@ -1,0 +1,253 @@
+---
+const projects = [
+  {
+    title: 'Bridgeland Bungalow',
+    category: 'Full Staging',
+    result: 'Sold in 5 days',
+    image: 'Contemporary living space with warm neutrals'
+  },
+  {
+    title: 'Altadore Modern',
+    category: 'Partial Staging',
+    result: '12% over asking',
+    image: 'Open concept kitchen and dining'
+  },
+  {
+    title: 'Mount Royal Estate',
+    category: 'Luxury Staging',
+    result: 'Sold in 3 days',
+    image: 'Elegant master bedroom suite'
+  },
+  {
+    title: 'Mission Condo',
+    category: 'Full Staging',
+    result: '8% over asking',
+    image: 'Urban chic living room'
+  },
+  {
+    title: 'Inglewood Character Home',
+    category: 'Partial Staging',
+    result: 'Sold in 7 days',
+    image: 'Vintage-inspired dining room'
+  },
+  {
+    title: 'Kensington Townhouse',
+    category: 'Full Staging',
+    result: '15% over asking',
+    image: 'Modern minimalist bedroom'
+  }
+];
+---
+
+<section id="portfolio" class="portfolio">
+  <div class="portfolio-bg"></div>
+  
+  <div class="container">
+    <div class="portfolio-header">
+      <div class="portfolio-header-content">
+        <span class="overline">Portfolio</span>
+        <h2>Transformations That Sell</h2>
+        <p>
+          Browse our recent staging projects across Calgary's most desirable neighbourhoods. 
+          Each transformation is thoughtfully designed to resonate with today's buyers.
+        </p>
+      </div>
+      <a href="#contact" class="btn btn-outline portfolio-cta">View All Projects</a>
+    </div>
+    
+    <div class="portfolio-grid">
+      {projects.map((project, index) => (
+        <article class="portfolio-card animate-on-scroll" style={`--delay: ${index * 0.1}s`}>
+          <div class="portfolio-image">
+            <div class="img-placeholder portfolio-img">
+              <span>{project.image}</span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="view-project">View Project</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <span class="portfolio-category">{project.category}</span>
+            <h3 class="portfolio-title">{project.title}</h3>
+            <div class="portfolio-result">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+              {project.result}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    padding: var(--space-2xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .portfolio-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 30%, var(--color-cream) 70%, var(--color-warm-white) 100%);
+    z-index: -1;
+  }
+  
+  .portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-xl);
+    gap: 2rem;
+  }
+  
+  .portfolio-header-content {
+    max-width: 550px;
+  }
+  
+  .portfolio-header h2 {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .portfolio-header p {
+    color: var(--color-stone);
+    font-size: 1.05rem;
+  }
+  
+  .portfolio-cta {
+    flex-shrink: 0;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .portfolio-card {
+    background: var(--color-warm-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(42, 37, 34, 0.05);
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .portfolio-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: var(--delay);
+  }
+  
+  .portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(42, 37, 34, 0.12);
+  }
+  
+  .portfolio-image {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  
+  .portfolio-img {
+    width: 100%;
+    height: 100%;
+    transition: transform var(--transition-slow);
+    font-size: 0.9rem;
+  }
+  
+  .portfolio-card:hover .portfolio-img {
+    transform: scale(1.05);
+  }
+  
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(42, 37, 34, 0.7) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+  }
+  
+  .portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+  }
+  
+  .view-project {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-warm-white);
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-warm-white);
+    border-radius: 4px;
+    transform: translateY(10px);
+    transition: transform var(--transition-smooth);
+  }
+  
+  .portfolio-card:hover .view-project {
+    transform: translateY(0);
+  }
+  
+  .portfolio-content {
+    padding: 1.5rem;
+  }
+  
+  .portfolio-category {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  
+  .portfolio-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0.5rem 0;
+    color: var(--color-deep-brown);
+  }
+  
+  .portfolio-result {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--color-stone);
+  }
+  
+  .portfolio-result svg {
+    color: var(--color-sage);
+  }
+  
+  @media (max-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+</style>

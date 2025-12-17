@@ -1,0 +1,295 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Consultation',
+    description: 'We visit your property to understand its unique features, discuss your goals, and recommend the ideal staging approach for your market.',
+    duration: '1-2 hours'
+  },
+  {
+    number: '02',
+    title: 'Design Plan',
+    description: 'Our design team creates a customized staging concept, selecting furniture, colours, and accessories that will appeal to your target buyers.',
+    duration: '2-3 days'
+  },
+  {
+    number: '03',
+    title: 'Installation',
+    description: 'Our professional team transforms your space with precision and care. We handle everything from furniture placement to final styling touches.',
+    duration: '1 day'
+  },
+  {
+    number: '04',
+    title: 'Sell & Succeed',
+    description: 'Your property is now ready to captivate buyers. We coordinate with your realtor for photos and showings, ensuring maximum impact.',
+    duration: 'Market ready'
+  }
+];
+---
+
+<section id="process" class="process">
+  <div class="container">
+    <div class="process-layout">
+      <div class="process-sticky">
+        <span class="overline">Our Process</span>
+        <h2>Four Steps to a<br/><span class="text-gold">Picture-Perfect</span> Listing</h2>
+        <p class="process-intro">
+          From initial consultation to installation day, we've streamlined 
+          our process to be effortless for you. Let us handle the transformation 
+          while you focus on your sale.
+        </p>
+        <div class="process-stats">
+          <div class="process-stat">
+            <span class="process-stat-number">500+</span>
+            <span class="process-stat-label">Homes Staged</span>
+          </div>
+          <div class="process-stat">
+            <span class="process-stat-number">15</span>
+            <span class="process-stat-label">Days Avg. Sale</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="process-steps">
+        {steps.map((step, index) => (
+          <div class="process-step animate-on-scroll" style={`--delay: ${index * 0.15}s`}>
+            <div class="step-number">{step.number}</div>
+            <div class="step-content">
+              <div class="step-header">
+                <h3 class="step-title">{step.title}</h3>
+                <span class="step-duration">{step.duration}</span>
+              </div>
+              <p class="step-description">{step.description}</p>
+            </div>
+            <div class="step-line"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    padding: var(--space-2xl) 0;
+    background: var(--color-deep-brown);
+    color: var(--color-warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: 
+      radial-gradient(ellipse at 80% 50%, rgba(196, 169, 98, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .process-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  
+  .process-sticky {
+    position: sticky;
+    top: 120px;
+  }
+  
+  .process-sticky .overline {
+    color: var(--color-gold-light);
+  }
+  
+  .process-sticky h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-md);
+    line-height: 1.15;
+  }
+  
+  .process-intro {
+    color: var(--color-taupe);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .process-stats {
+    display: flex;
+    gap: 3rem;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(196, 169, 98, 0.2);
+  }
+  
+  .process-stat {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-stat-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--color-gold);
+    line-height: 1;
+  }
+  
+  .process-stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+    margin-top: 0.5rem;
+  }
+  
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    position: relative;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  
+  .process-step.visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.6s ease;
+    transition-delay: var(--delay);
+  }
+  
+  .step-line {
+    position: absolute;
+    left: 30px;
+    top: 80px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--color-gold), transparent);
+  }
+  
+  .process-step:last-child .step-line {
+    display: none;
+  }
+  
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-gold);
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--color-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--color-deep-brown);
+    position: relative;
+    z-index: 1;
+    transition: all var(--transition-smooth);
+  }
+  
+  .process-step:hover .step-number {
+    background: var(--color-gold);
+    color: var(--color-deep-brown);
+    transform: scale(1.1);
+  }
+  
+  .step-content {
+    padding-top: 0.5rem;
+  }
+  
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--color-warm-white);
+  }
+  
+  .step-duration {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    padding: 0.3rem 0.8rem;
+    background: rgba(196, 169, 98, 0.15);
+    border-radius: 20px;
+  }
+  
+  .step-description {
+    color: var(--color-taupe);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 450px;
+  }
+  
+  @media (max-width: 1024px) {
+    .process-layout {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    
+    .process-sticky {
+      position: static;
+      text-align: center;
+    }
+    
+    .process-stats {
+      justify-content: center;
+    }
+    
+    .process-steps {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .process-step {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 2rem 0;
+    }
+    
+    .step-number {
+      width: 50px;
+      height: 50px;
+      font-size: 1rem;
+    }
+    
+    .step-line {
+      display: none;
+    }
+    
+    .step-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .step-duration {
+      align-self: flex-start;
+    }
+  }
+</style>
