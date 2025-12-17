@@ -59,9 +59,7 @@ const projects = [
       {projects.map((project, index) => (
         <article class="portfolio-card animate-on-scroll" style={`--delay: ${index * 0.1}s`}>
           <div class="portfolio-image">
-            <div class="img-placeholder portfolio-img">
-              <span>{project.image}</span>
-            </div>
+            <img src={`/images/portfolio-${index + 1}.jpg`} alt={project.title} class="portfolio-img" />
             <div class="portfolio-overlay">
               <span class="view-project">View Project</span>
             </div>
